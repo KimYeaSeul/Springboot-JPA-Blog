@@ -3,9 +3,9 @@
 		$("#btn-save").on("click", ()=>{ //this를 바인딩 하기 위해서 arrow function 사용
 			this.save();
 		});
-		$("#btn-login").on("click", ()=>{ //this를 바인딩 하기 위해서 arrow function 사용
-			this.login();
-		});
+		// $("#btn-login").on("click", ()=>{ //this를 바인딩 하기 위해서 arrow function 사용
+		// 	this.login();
+		// });
 	},
 	
 	save: function(){
@@ -21,14 +21,14 @@
 		// ajax는 비동기
 		$.ajax({
 			type:"POST",
-			url:"/blog/api/user",
+			url:"/auth/joinProc",
 			data:JSON.stringify(data),
 			contentType: "application/json; charset=utf-8", //body data가 어떤 타입인지(MIME)
 			dataType:"json" // 
 		}).done(function(resp){
 			alert("Join Success");
 		 // console.log(resp);
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 
@@ -43,13 +43,13 @@
 
 		$.ajax({
 			type:"POST",
-			url:"/blog/api/user/login",
+			url:"/api/user/login",
 			data:JSON.stringify(data),
 			contentType: "application/json; charset=utf-8", //body data가 어떤 타입인지(MIME)
 			dataType:"json" // 
 		}).done(function(resp){
 			alert("login Success");
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		}); 

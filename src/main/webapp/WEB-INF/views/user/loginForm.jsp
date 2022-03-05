@@ -4,24 +4,21 @@
 
 <div class="container">
 
-	<form action="">
+	<form action="/auth/loginProc" method="post">
 		<div class="form-group">
-			<label for="username">User name :</label> <input type="text" class="form-control" placeholder="Enter username" id="username">
+			<label for="username">User name :</label> <input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
 		</div>
 		
 		<div class="form-group">
-			<label for="password">Password:</label> <input type="password" class="form-control" placeholder="Enter password" id="password">
+			<label for="password">Password:</label> <input type="password" class="form-control" placeholder="Enter password" id="password" name="password">
 		</div>
 		
-		<div class="form-group form-check">
-			<label class="form-check-label"> <input class="form-check-input" type="checkbox"> Remember me
-			</label>
-		</div>
+		<button id="btn-login" class="btn btn-primary">Login</button>
+		<!-- <script src="/js/user.js"></script> -->
 	</form>
-	<button id="btn-login" class="btn btn-primary">Login</button>
+	
 
 	
 </div>
 
-<script src="/blog/js/user.js"></script>
 <%@include file="../layout/footer.jsp"%>
