@@ -6,6 +6,9 @@
 		// $("#btn-login").on("click", ()=>{ //this를 바인딩 하기 위해서 arrow function 사용
 		// 	this.login();
 		// });
+		$("#btn-update").on("click", ()=>{
+			this.userUpdate();
+		});
 	},
 	
 	save: function(){
@@ -28,6 +31,28 @@
 		}).done(function(resp){
 			alert("Join Success");
 		 // console.log(resp);
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
+	userUpdate: function(){
+		let data = {
+			id:$("#id").val(),
+			username:$("#username").val(),
+			password:$("#password").val(),
+			email:$("#email").val()
+		};
+
+		$.ajax({
+			type:"PUT",
+			url:"/user",
+			data:JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			dataType:"json" 
+		}).done(function(resp){
+			alert("회원수정이 완료되었습니다.");
 			location.href="/";
 		}).fail(function(error){
 			alert(JSON.stringify(error));
