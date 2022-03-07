@@ -32,7 +32,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
 	
-	@Column(nullable = false, length = 30, unique = true)
+	@Column(nullable = false, length = 100, unique = true)
 	private String username;
 	
 	@Column(nullable = false, length = 50)
@@ -47,6 +47,8 @@ public class User {
 //DB는 RoleType이라는게 없어서 @Enumerated로 type이 String이라는 것을 알려주어야 한다.
 	@Enumerated(EnumType.STRING)
 	private RoleType role;
+	
+	private String oauth;  // kakao, google, facebook
 	
 	@CreationTimestamp
 	private Timestamp createDate;
