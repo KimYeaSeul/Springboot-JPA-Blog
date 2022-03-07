@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.cos.blog.dto.ReplySaveRequestdto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,4 +45,10 @@ public class Reply {
 	
 	@CreationTimestamp
 	private Timestamp createDate;
+	
+	public void update(User user, Board board, String content) {
+		setUser(user);
+		setBoard(board);
+		setContent(content);		
+	}
 }

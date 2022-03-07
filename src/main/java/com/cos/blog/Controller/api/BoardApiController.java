@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cos.blog.config.auth.PrincipalDetail;
+import com.cos.blog.dto.ReplySaveRequestdto;
 import com.cos.blog.dto.ResponseDto;
 import com.cos.blog.model.Board;
+import com.cos.blog.model.Reply;
 import com.cos.blog.service.BoardService;
 
 @RestController
@@ -36,6 +38,14 @@ public class BoardApiController {
 	@DeleteMapping("/api/board/{id}")
 	public ResponseDto<Integer> deleteById(@PathVariable int id){
 		boardService.boardDelete(id);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
+	
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestdto replySaveRequestDto){
+		// 데이터를 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋다.
+		// dto를 사용하지 않은 이유는 
+		boardService.replyWrite(replySaveRequestDto);		
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
 }
