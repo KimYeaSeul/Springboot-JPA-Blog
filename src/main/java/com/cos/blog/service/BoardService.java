@@ -22,6 +22,11 @@ public class BoardService {
 	private ReplyRespository replyrRepository;
 	
 	@Transactional
+	public void replyDelete(int replyId) {
+		replyrRepository.deleteById(replyId);
+	}
+	
+	@Transactional
 	public void replyWrite( ReplySaveRequestdto replySaveRequestDto) { // title, content
 		
 		
