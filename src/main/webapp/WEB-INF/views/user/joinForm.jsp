@@ -23,6 +23,12 @@
 		
 </div>
 
+<<<<<<< HEAD
 <script src="/blog/js/user.js"></script>
 
 <%@include file="../layout/footer.jsp"%>
+=======
+<script src="/js/user.js"></script>
+
+<%@include file="../layout/footer.jsp"%>
+>>>>>>> f8a7dd090047f64c3a67cbbccb00149c5d166cc8

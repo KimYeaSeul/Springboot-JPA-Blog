@@ -1,7 +1,11 @@
 server:
   port: 8000
   servlet:
+<<<<<<< HEAD
     context-path: /blog
+=======
+    context-path: /
+>>>>>>> f8a7dd090047f64c3a67cbbccb00149c5d166cc8
     encoding:
       charset: UTF-8
       enabled: true
@@ -28,6 +32,7 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
     show-sql: true
+<<<<<<< HEAD
     properties:
       hibernate:
         format_sql: true
@@ -36,3 +41,12 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+=======
+            
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+      
+cos:
+  key: cos1234
+>>>>>>> f8a7dd090047f64c3a67cbbccb00149c5d166cc8
