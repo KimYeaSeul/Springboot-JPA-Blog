@@ -10,7 +10,7 @@
 			<input type="text" value="${principal.user.username}" class="form-control" id="username" readonly>
 		</div>
 		
-		<c:if test="${empty principal.user.oauth }">
+		<c:if test="${empty principal.user.provider }">
 		<div class="form-group">
 			<label for="password">Password:</label> 
 			<input type="hidden" id="password" value="${principal.user.password }">
@@ -24,14 +24,14 @@
 		</c:if>	
 	
 		
-		<c:if test="${not empty principal.user.oauth }">
+		<c:if test="${not empty principal.user.provider }">
 		<div class="form-group">
 			<label for="email">Email :</label> 
 			<input type="email" value="${principal.user.email}" class="form-control" id="email" readOnly>
 		</div>
 		</c:if>	
 	</form>
-		<button id="btn-update" class="btn btn-primary">회원수정완료</button>
+		<button id="btn-update" class="btn btn-secondary">회원수정완료</button>
 		
 </div>
 

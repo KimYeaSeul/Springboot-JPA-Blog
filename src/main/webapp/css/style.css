@@ -1,0 +1,297 @@
+@charset "UTF-8";
+
+
+body {
+    -webkit-text-size-adjust: 100%;
+    font-weight: 400;
+    font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+    font-size: 1em;
+    line-height: 1.25;
+    color: #555;
+    display: block;
+    margin: 8px;
+    min-width: 800px;
+}
+html, body{
+	color : #555;
+	width: 100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+div{
+	display : block;
+}
+a, a:link {
+	text-decoration:none;
+	color: #555;
+}
+ul {
+	list-style: none;
+	display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li {
+	display : list-item;
+	list-style: none;
+	text-align: -webkit-match-parent;
+}
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {
+    display: block;
+}
+
+/*  Header */
+#navbar{
+	padding: 20px 50px 0px 50px;
+	justify-content: flex-start;
+}
+
+#blog-title{
+	font-family: 'Nanum Myeongjo';
+	font-weight: 800;
+	font-size: 1.75em;
+	line-height:32px;
+	letter-spacing: -0.2px;
+	color: #333;
+}
+#nav-right{
+	display:flex;
+}
+
+#navbar-menu .nav-item{
+	float: left;
+	list-style:none;
+}
+#nav-searchbtn, #nav-mybtn {
+	border-radius:50px ;
+	margin-left: 5px;
+	height:40px;
+}
+
+#navbar-menu {
+	padding-top: 35px;
+	flex-direction: row;
+	display:flex;
+	padding: 0;
+	margin: 0;
+}
+.nav-item{
+	margin: 0 10px;
+}
+.link{
+	color: #333;
+}
+.form-inline {
+	display : contents;
+}
+#my-menu{
+	position: absolute;
+	top: 100%;
+	right: 30px;
+	z-index:30;
+	width: 96px;
+	margin : 0 0 0 -48px;
+}
+
+.list-group-item{
+	text-align: center;
+	padding: 8px;
+}
+
+/* saveForm */
+.ck-editor__editable {
+	height: 370px;
+}
+
+#content-aside{
+	/*position: absolute;
+	bottom: 0;*/
+	width: 100%;
+	height: 66px;
+	/* background-color: #f5f5f5; 
+	z-index:1; */
+	overflow: hidden;
+	text-align: center;
+}
+
+
+/* index */
+#wrap{
+	height: 100%;
+}
+
+#container {
+	position: relative;
+	height: 100%;
+}
+
+#content-wrap{
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 0 20px;
+	height: 100%;
+}
+#content-wrap:before{
+	content: "";
+	position:absolute;
+	top:0;
+	left:50%;
+	z-index:10;
+	width:1px;
+	height: 100%;
+	margin-left: 255px;
+	background-color: #eee;
+}
+
+.board-index-list{
+	margin : 10px 0;
+}
+#content{
+	padding: 50px 0;
+	width: 80%;	
+	display: block;
+	margin: auto;
+}
+
+.reply-card {
+	display:block;
+	width:80%;
+	margin:auto;
+}
+.cover-list {
+	position: relative;
+	overflow:hidden;
+}
+.cover-list h2{
+	margin-bottom : 35px;
+	padding-bottom: 19px;
+	border-bottom: 1px solid #eee;
+	font-weight : 500;
+	font-size: 1em;
+	color : #555;	
+}
+
+.cover-list ul li{
+	margin-bottom : 33px;
+	color: #555;
+	overflow : hidden;
+}
+
+#detail-btn{
+	color: white;
+}
+
+#aside {
+	float: right;
+	width : 21%;
+	padding: 75px 0 32px;
+	box-sizing: border-box;
+}
+
+.board-title {
+	margin-bottom: 8px;
+	font-size: 1em;
+	overflow: hedden;
+	max-width:95%;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	line-height: 1.4;
+	display: block;
+}
+
+.board-excerpt {
+	overflow : hidden;
+	max-width:95%;
+	text-overflow: ellipsis;
+	font-size : 0.875em;
+	line-height:1.5rem;
+	color: #999;
+	margin-bottom:9px;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	display:block;
+	display:-webkit-box; 
+}
+.board-date{
+	font-size:0.75em;
+	color: #999;
+	display:  block;
+}
+
+/* footer */
+#footer {
+	padding: 38px 0 28px;
+	border-top: 1px solid #eee;
+}
+
+#footer .inner {
+	position: relative;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+#footer .page-top{
+	position: absolute;
+	top : 0;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	border: 1px solild #eee;
+	border-radius: 50%;
+}
+
+#footer p{
+	margin-bottom: 10px;
+	font-size:0.875em;
+	color: #777;
+}
+
+/* login */
+#login-error {
+	height : 40px;
+}
+/* loginForm */
+#btn-login{
+	width : 130px;
+	margin: 2px 0;
+}
+.sns-login{
+	width:130px;
+	margin: 5px 0;
+	padding : 0;
+	text-align: center;
+}
+
+.sns-login li img{
+	width:130px;
+	object-fit: cover;
+	border-radius: 4px;	
+	margin: 2px 0;
+}
+
+/* saveForm */
+
+#editor {
+	width:80%;
+	margin: auto;
+}
+
+#content-aside button {
+	margin-top : 10px;
+}
+
+#select-box {
+	margin-bottom: 20px;
+}
+/* manager */
+#mFeature {
+	float : left;
+	width : 216px;
+}

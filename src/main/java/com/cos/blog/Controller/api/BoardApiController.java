@@ -14,44 +14,44 @@ import com.cos.blog.config.auth.PrincipalDetail;
 import com.cos.blog.dto.ReplySaveRequestdto;
 import com.cos.blog.dto.ResponseDto;
 import com.cos.blog.model.Board;
-import com.cos.blog.model.Reply;
 import com.cos.blog.service.BoardService;
 
 @RestController
 public class BoardApiController {
-	
+
 	@Autowired
 	private BoardService boardService;
 
 	@PostMapping("/api/board")
 	public ResponseDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principal){
 		boardService.write(board, principal.getUser());
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		return new ResponseDto<>(HttpStatus.OK.value(), 1);
 	}
-	
+
 	@PutMapping("/api/board/{id}")
 	public ResponseDto<Integer> putById(@PathVariable int id, @RequestBody Board board){
 		boardService.boardUpdate(id, board);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		return new ResponseDto<>(HttpStatus.OK.value(), 1);
 	}
-	
+
 	@DeleteMapping("/api/board/{id}")
 	public ResponseDto<Integer> deleteById(@PathVariable int id){
+		System.out.println("여기까지 오긴 오고? " + id);
 		boardService.boardDelete(id);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		return new ResponseDto<>(HttpStatus.OK.value(), 1);
 	}
-	
+
 	@PostMapping("/api/board/{boardId}/reply")
 	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestdto replySaveRequestDto){
 		// 데이터를 받을 때 컨트롤러에서 dto를 만들어서 받는게 좋다.
-		// dto를 사용하지 않은 이유는 
-		boardService.replyWrite(replySaveRequestDto);		
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		// dto를 사용하지 않은 이유는
+		boardService.replyWrite(replySaveRequestDto);
+		return new ResponseDto<>(HttpStatus.OK.value(), 1);
 	}
-	
+
 	@DeleteMapping("/api/board/{boardId}/reply/{replyId}")
 	public ResponseDto<Integer> replyDelete(@PathVariable int replyId){
 		boardService.replyDelete(replyId);
-		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+		return new ResponseDto<>(HttpStatus.OK.value(), 1);
 	}
 }

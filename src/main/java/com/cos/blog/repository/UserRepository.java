@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 //자동으로 Bean에 등록이 되기 때문에 @Repository annotation 생략 가능.
 
 public interface UserRepository extends JpaRepository<User, Integer>{
-	
+
 	// SELECT * FROM user WHERE username = ?1;
 	Optional<User> findByUsername(String username);
 }
@@ -29,7 +29,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	// JPA Naming query 전략
 	// Select * From user WHERE username = ?1 AND password = ?2;
 //	User findByUsernameAndPassword(String username, String password);
-	
+
 //	@Query(value="Select * From user WHERE username = ?1 AND password = ?2", nativeQuery=true)
 //	User login(String username, String password);
 

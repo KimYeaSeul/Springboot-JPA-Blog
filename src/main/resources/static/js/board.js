@@ -6,9 +6,6 @@
 		$("#btn-update").on("click", ()=>{ 
 			this.updateById();
 		}),
-		$("#btn-delete").on("click", ()=>{ 
-			this.deleteById();
-		}),
 		$("#btn-reply-save").on("click", ()=>{ 
 			this.replySave();
 		});
@@ -36,6 +33,19 @@
 		}); 
 	},
 	
+	deleteById: function(id){
+		$.ajax({
+			type:"DELETE",
+			url:"/api/board/"+id,
+			dataType:"json" 
+		}).done(function(resp){
+			alert("삭제가 완료되었습니다.");
+			location.href="/";
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		}); 
+	},
+	
 	replyDelete: function(boardId, replyId){
 		$.ajax({
 			type:"DELETE",
@@ -53,6 +63,7 @@
 		let data = {
 			title:$("#title").val(),
 			content:$("#content").val(),
+			pureContent : $("#content").val().replace(/<[^>]*>?/g, ''),
 		};
 		console.log(data);
 		$.ajax({
@@ -90,20 +101,6 @@
 		}); 
 	},
 	
-	deleteById: function(){
-		let id = $("#id").text();
-		
-		$.ajax({
-			type:"DELETE",
-			url:"/api/board/"+id,
-			dataType:"json" 
-		}).done(function(resp){
-			alert("삭제가 완료되었습니다.");
-			location.href="/";
-		}).fail(function(error){
-			alert(JSON.stringify(error));
-		}); 
-	},
 }
 
 index.init();

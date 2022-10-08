@@ -14,7 +14,7 @@
 	</parent>
 	<groupId>com.cos</groupId>
 	<artifactId>blog</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>blog</name>
 <<<<<<< HEAD
 	<description>My FIrst Blog Project</description>
@@ -120,7 +120,15 @@
 			<artifactId>tomcat-embed-jasper</artifactId> 
 			<scope>provided</scope> 
 		</dependency>
-
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId> 
+			<artifactId>spring-boot-starter-tomcat</artifactId> 
+			<scope>provided</scope> 
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
 
 		 <dependency>
 >>>>>>> f8a7dd090047f64c3a67cbbccb00149c5d166cc8

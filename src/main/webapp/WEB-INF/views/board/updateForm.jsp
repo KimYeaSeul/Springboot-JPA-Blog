@@ -17,7 +17,7 @@
 	
 	</form>
 	
-	<button id="btn-update" class="btn btn-primary">글수정완료</button>
+	<button id="btn-update" class="btn btn-secondary">글수정완료</button>
 </div>
 <script>
    $('.summernote').summernote({

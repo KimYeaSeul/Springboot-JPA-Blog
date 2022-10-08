@@ -11,7 +11,7 @@ import com.cos.blog.repository.UserRepository;
 
 @Service  // Bean등록
 public class PrincipalDetailService implements UserDetailsService{
-	
+
 	@Autowired
 	private UserRepository userRepository;
 
@@ -26,6 +26,4 @@ public class PrincipalDetailService implements UserDetailsService{
 				});
 		return new PrincipalDetail(principal); // 시큐리티의 세션에 유저정보가 저장됨.
 	}
-
-	
 }

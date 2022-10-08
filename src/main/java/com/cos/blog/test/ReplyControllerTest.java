@@ -18,10 +18,10 @@ public class ReplyControllerTest {
 
 	@Autowired
 	private BoardRepository boardRepository;
-	
+
 	@Autowired
 	private ReplyRespository replyRespository;
-	
+
 	@GetMapping("/test/board/{id}")
 	public Board getBoard(@PathVariable int id) {
 		//jackson library 발동( object를 json 으로 리턴해줌 => 모델의 getter를 호출.)
@@ -29,9 +29,9 @@ public class ReplyControllerTest {
 		// 따라서 reply에서 board를 호출하지 말자!
 		// @JsonIgnoreProperties({"board"}) 로 해결!
 		// reply를 가지고 올때 board는 가져오지맛!
-		return boardRepository.findById(id).get(); 
+		return boardRepository.findById(id).get();
 	}
-	
+
 	@GetMapping("/test/reply")
 	public List<Reply> getReply() {
 		return replyRespository.findAll();

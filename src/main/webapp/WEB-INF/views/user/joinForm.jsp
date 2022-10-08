@@ -19,7 +19,7 @@
 		
 			
 	</form>
-		<button id="btn-save" class="btn btn-primary">Join</button>
+		<button id="btn-save" class="btn btn-secondary">Join</button>
 		
 </div>
 

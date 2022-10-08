@@ -39,14 +39,29 @@
 <%@ include file="layout/footer.jsp"%>
 
 =======
-<c:forEach var="board" items="${boards.content}">
+<%-- <c:forEach var="board" items="${boards.content}">
 	<div class="card m-2">
 		<div class="card-body">
 			<h4 class="card-title">${board.title}</h4>
-			<a href="/board/${board.id}" class="btn btn-primary">상세보기</a>
+			<a href="/board/${board.id}" class="btn btn-secondary" id="detail-btn">상세보기</a>
 		</div>
 	</div>
-</c:forEach>
+</c:forEach> --%>
+	<div id="blog-ment">
+		<span> 공부하면서 기록을 남기는 중입니다. </span>
+		<hr />
+	</div>
+	<ul>
+		<c:forEach var="board" items="${boards.content }">
+			<li class="board-index-list">
+			<a href=/board/${board.id}>
+				<span class="board-title"> ${board.title }</span>
+				<span class="board-excerpt">${board.pureContent}</span> 
+				<span class="board-date">${fn:split(board.createDate,' ')[0] }</span>
+			</a>
+			</li>
+		</c:forEach>
+		</ul>
 <ul class="pagination justify-content-center">
 	<c:choose>
 		<c:when test="${boards.first}">

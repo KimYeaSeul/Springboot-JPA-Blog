@@ -1,13 +1,7 @@
 package com.cos.blog.service;
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +20,7 @@ public class UserService {
 
 	@Autowired // DI
 	private BCryptPasswordEncoder encoder;
-	
+
 	@Transactional(readOnly = true)
 	public User findUser(String username) {
 		User user = userRepository.findByUsername(username).orElseGet(()->{
@@ -34,26 +28,27 @@ public class UserService {
 		});
 		return user;
 	}
-	
+
 	@Transactional
 	public void join(User user) {
-//		try {
-//			userRepository.save(user);
-//			return 1;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			System.out.println("UserService : join() : " + e.getMessage());
-//			// TODO: handle exception 
-//		}
-//		return -1;
+
 		String rawPassword = user.getPassword();
 		String encPassword = encoder.encode(rawPassword);
 		user.setPassword(encPassword);
 		user.setRole(RoleType.USER);
 		System.out.println(rawPassword +", "+ encPassword);
 		userRepository.save(user);
+//		try {
+//			userRepository.save(user);
+//			return 1;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("UserService : join() : " + e.getMessage());
+//			// TODO: handle exception
+//		}
+//		return -1;
 	}
-	
+
 	@Transactional
 	public void userUpdate(User user) {
 		// 수정시에는 영속성 컨텍스트에 User 객체를 영속화시키고, 영속화된 User 객체를 수정하는게 좋다.
@@ -62,9 +57,9 @@ public class UserService {
 		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
 			return new IllegalArgumentException("회원 찾기 실패");
 		});
-		
+
 		// validate check
-		if(persistance.getOauth() == null || persistance.getOauth().equals("")) {
+		if(persistance.getProvider() == null || persistance.getProvider().equals("")) {
 			String rawPassword = user.getPassword();
 			String encPassword = encoder.encode(rawPassword);
 			persistance.setPassword(encPassword);
@@ -74,7 +69,7 @@ public class UserService {
 		// 영속화된 persistance 객체의 변화가 감지되어 더티체킹 하여 DB에 자동으로 update문을 날려줌.
 //		userRepository.save(persistance);
 	}
-	
+
 //	@Transactional(readOnly = true) // Select 할 때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료(정합성 유지)
 //	public User login(User user) {
 //		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
